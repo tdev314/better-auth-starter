@@ -18,6 +18,7 @@ const redis = new Redis(`${process.env.REDIS_URL}?family=0`)
 // Check better-auth docs for more info https://www.better-auth.com/docs/
 export const auth = betterAuth({
 	appName: process.env.APPLICATION_NAME || "App",
+	trustedOrigins: [process.env.TRUSTED_ORIGIN || "http://localhost:3000"],
 	emailAndPassword: {
 		enabled: true,
 	},
