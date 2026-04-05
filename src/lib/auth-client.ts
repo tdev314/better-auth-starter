@@ -1,10 +1,11 @@
 import { createAuthClient } from "better-auth/client";
-import { sentinelClient } from "@better-auth/infra/client";
+import { dashClient, sentinelClient } from "@better-auth/infra/client";
 
 export const authClient = createAuthClient({
-  // ... your existing config
   plugins: [
-    // ... other plugins
-    sentinelClient()
+    dashClient(),
+    sentinelClient({
+      autoSolveChallenge: true, // Automatically solve PoW challenges
+    }),
   ]
 })

@@ -1,5 +1,5 @@
 import { betterAuth } from "better-auth";
-import { dash } from "@better-auth/infra";
+import { dash, sentinel } from "@better-auth/infra";
 import { openAPI } from "better-auth/plugins";
 import { Pool } from "pg";
 import { Redis } from "ioredis"
@@ -30,6 +30,7 @@ export const auth = betterAuth({
 	// Add your plugins here
 	plugins: [
 		dash(),
+		sentinel(),
 		openAPI()
 	],
 	// DB config
