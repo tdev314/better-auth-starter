@@ -17,6 +17,10 @@ const redis = new Redis(`${process.env.REDIS_URL}?family=0`)
 
 // Check better-auth docs for more info https://www.better-auth.com/docs/
 export const auth = betterAuth({
+	trustedOrigins: [
+        "http://localhost:3000",       // local dev
+        // "https://your-console.vercel.app" // production URL when deployed
+    ],
 	emailAndPassword: {
 		enabled: true,
 	},
